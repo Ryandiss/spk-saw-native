@@ -41,7 +41,7 @@ if ($user_role == 'admin' || $user_role == 'user') {
 		<div class="card-body">
 			<div class="table-responsive">
 				<table class="table table-bordered" width="100%" cellspacing="0">
-					<thead class="bg-primary text-white">
+					<thead class="bg-danger text-white">
 						<tr align="center">
 							<?php foreach ($kriteria as $key) : ?>
 								<th><?= $key['kode_kriteria'] ?> (<?= $key['type'] ?>)</th>
@@ -69,7 +69,7 @@ if ($user_role == 'admin' || $user_role == 'user') {
 		<div class="card-body">
 			<div class="table-responsive">
 				<table class="table table-bordered" width="100%" cellspacing="0">
-					<thead class="bg-primary text-white text-center">
+					<thead class="bg-danger text-white text-center">
 						<tr>
 							<th width="5%" rowspan="2">No</th>
 							<th>Nama Alternatif</th>
@@ -117,7 +117,7 @@ if ($user_role == 'admin' || $user_role == 'user') {
 		<div class="card-body">
 			<div class="table-responsive">
 				<table class="table table-bordered" width="100%" cellspacing="0">
-					<thead class="bg-primary text-white">
+					<thead class="bg-danger text-white">
 						<tr align="center">
 							<th width="5%" rowspan="2">No</th>
 							<th rowspan="2">Nama Alternatif</th>
@@ -184,7 +184,7 @@ if ($user_role == 'admin' || $user_role == 'user') {
 		<div class="card-body">
 			<div class="table-responsive">
 				<table class="table table-bordered" width="100%" cellspacing="0">
-					<thead class="bg-primary text-white">
+					<thead class="bg-danger text-white">
 						<tr align="center">
 							<th width="5%" rowspan="2">No</th>
 							<th>Nama Alternatif</th>
@@ -246,7 +246,7 @@ if ($user_role == 'admin' || $user_role == 'user') {
 		<div class="card-body">
 			<div class="table-responsive">
 				<table class="table table-bordered" width="100%" cellspacing="0">
-					<thead class="bg-primary text-white">
+					<thead class="bg-danger text-white">
 						<tr align="center">
 							<th>No</th>
 							<th>Nama Alternatif</th>
@@ -269,6 +269,7 @@ if ($user_role == 'admin' || $user_role == 'user') {
 						<?php endwhile ?>
 					</tbody>
 				</table>
+				
 			</div>
 		</div>
 	</div>

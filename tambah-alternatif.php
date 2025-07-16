@@ -55,12 +55,12 @@ require_once('template/header.php');
 <form action="tambah-alternatif.php" method="post">
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-fw fa-plus"></i> Tambah Data Bakal Calon Legislatif</h6>
+			<h6 class="m-0 font-weight-bold text-danger"><i class="fas fa-fw fa-plus"></i> Tambah Data Bakal Calon Legislatif</h6>
 		</div>
 		<div class="card-body">
 		    <div class="row">
 		        <div class="form-group col-md-12">
-		            <label class="font-weight-bold">Nama Calon</label>
+		            <label class="font-weight-bold">Nama Bakal Calon</label>
 		            <input autocomplete="off" type="text" name="nama" required value="<?php echo $nama; ?>" class="form-control" />
 		        </div>
 		        <div class="form-group col-md-12">

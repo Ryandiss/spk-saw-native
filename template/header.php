@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Sistem Pendukung Keputusan Metode SAW</title>
+  <title>SPK BACALEG</title>
 
   <!-- Custom fonts for this template-->
   <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -96,12 +96,34 @@
             </div>
           </div>
         </li>
+     <li class="nav-item <?= (
+    $page == "Laporan Bacaleg" || 
+    $page == "Laporan Kriteria" || 
+    $page == "Laporan Sub Kriteria" || 
+    $page == "Laporan Penilaian" || 
+    $page == "Hasil Akhir"
+  ) ? "active" : '' ?>">
+  <a class="nav-link collapsed navbar-toggler" href="#" data-toggle="collapse" data-target="#collapseLaporan" aria-expanded="true" aria-controls="collapseLaporan">
+    <i class="fas fa-fw fa-file-alt"></i>
+    <span>Laporan</span>
+  </a>
+  <div id="collapseLaporan" class="collapse <?= (
+    $page == "Laporan Bacaleg" || 
+    $page == "Laporan Kriteria" || 
+    $page == "Laporan Sub Kriteria" || 
+    $page == "Laporan Penilaian" || 
+    $page == "Hasil Akhir"
+    ) ? "show" : "" ?>" aria-labelledby="headingLaporan" data-parent="#accordionSidebar">
+    <div class="bg-white py-2 collapse-inner rounded">
+      <a class="collapse-item <?= ($page == 'Laporan Bacaleg') ? 'active' : '' ?>" href="laporan-bacaleg.php">Laporan Bacaleg</a>
+     <a class="collapse-item <?= ($page == 'Laporan Kriteria') ? 'active' : '' ?>" href="laporan-kriteria.php">Laporan Kriteria</a>
+      <a class="collapse-item <?= ($page == 'Laporan Sub Kriteria') ? 'active' : '' ?>" href="laporan-sub-kriteria.php">Laporan Sub Kriteria</a>
+      <a class="collapse-item <?= ($page == 'Laporan Penilaian') ? 'active' : '' ?>" href="laporan-penilaian.php">Laporan Penilaian</a>
+      <a class="collapse-item <?= ($page == 'Hasil Akhir') ? 'active' : '' ?>" href="laporan-hasil-akhir.php">Hasil Akhir</a>
+    </div>
+  </div>
+</li>
 
-        <li class="nav-item <?= ($page == "Hasil") ? "active" : '' ?>">
-          <a class="nav-link" href="hasil.php">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Hasil Akhir</span></a>
-        </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider">
@@ -137,11 +159,39 @@
             <span>Perhitungan</span></a>
         </li>
 
-        <li class="nav-item <?= ($page == "Hasil") ? "active" : "" ?>">
-          <a class="nav-link" href="hasil.php">
+        <!--<li class="nav-item <?= ($page == "Hasil") ? "active" : "" ?>">
+          <a class="nav-link" href="laporan-hasil-akhir.php">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Hasil Perangkingan</span></a>
-        </li>
+        </li>-->
+             <li class="nav-item <?= (
+        $page == "Laporan Bacaleg" || 
+        $page == "Laporan Kriteria" || 
+        $page == "Laporan Sub Kriteria" || 
+        $page == "Laporan Penilaian" || 
+        $page == "Hasil Akhir"
+      ) ? "active" : '' ?>">
+      <a class="nav-link collapsed navbar-toggler" href="#" data-toggle="collapse" data-target="#collapseLaporan" aria-expanded="true" aria-controls="collapseLaporan">
+        <i class="fas fa-fw fa-file-alt"></i>
+        <span>Laporan</span>
+      </a>
+      <div id="collapseLaporan" class="collapse <?= (
+        $page == "Laporan Bacaleg" || 
+        $page == "Laporan Kriteria" || 
+        $page == "Laporan Sub Kriteria" || 
+        $page == "Laporan Penilaian" || 
+        $page == "Hasil Akhir"
+        ) ? "show" : "" ?>" aria-labelledby="headingLaporan" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item <?= ($page == 'Laporan Bacaleg') ? 'active' : '' ?>" href="laporan-bacaleg.php">Laporan Bacaleg</a>
+         <a class="collapse-item <?= ($page == 'Laporan Kriteria') ? 'active' : '' ?>" href="laporan-kriteria.php">Laporan Kriteria</a>
+          <a class="collapse-item <?= ($page == 'Laporan Sub Kriteria') ? 'active' : '' ?>" href="laporan-sub-kriteria.php">Laporan Sub Kriteria</a>
+          <a class="collapse-item <?= ($page == 'Laporan Penilaian') ? 'active' : '' ?>" href="laporan-penilaian.php">Laporan Penilaian</a>
+          <a class="collapse-item <?= ($page == 'Hasil Akhir') ? 'active' : '' ?>" href="laporan-hasil-akhir.php">Hasil Akhir</a>
+        </div>
+      </div>
+    </li>
+
 
         <!-- Divider -->
         <hr class="sidebar-divider">

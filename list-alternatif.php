@@ -10,7 +10,7 @@ require_once('template/header.php');
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 	<h1 class="h3 mb-0 text-gray-800"><i class="fas fa-fw fa-users"></i> Data Bakal Calon Legislatif</h1>
 
-	<a href="tambah-alternatif.php" class="btn btn-primary"> <i class="fa fa-plus"></i> Tambah Data </a>
+	<a href="tambah-alternatif.php" class="btn btn-success"> <i class="fa fa-plus"></i> Tambah Data </a>
 </div>
 
 <?php
@@ -43,10 +43,10 @@ endif;
 		<div class="table-responsive">
 			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 			
-				<thead class="bg-primary text-white">
+				<thead class="bg-danger text-white">
 				    <tr align="center">
 				        <th width="5%">No</th>
-				        <th>Nama Calon</th>
+				        <th>Nama Bakal Calon</th>
 				        <th>Daerah Pencalonan</th>
 				        <th>No. KTA</th>
 				        <th>Alamat</th>
@@ -69,7 +69,7 @@ endif;
 				            <td>
 				                <div class="btn-group" role="group">
 				                    <a data-toggle="tooltip" data-placement="bottom" title="Edit Data" href="edit-alternatif.php?id=<?php echo $data['id_alternatif']; ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-				                    <a data-toggle="tooltip" data-placement="bottom" title="Hapus Data" href="hapus-alternatif.php?id=<?php echo $data['id_alternatif']; ?>" onclick="return confirm ('Apakah anda yakin untuk meghapus data ini')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+				                    <a data-toggle="tooltip" data-placement="bottom" title="Hapus Data" href="hapus-alternatif.php?id=<?php echo $data['id_alternatif']; ?>" onclick="return confirm ('Apakah anda yakin untuk meghapus data ini')" class="btn btn-primary btn-sm"><i class="fa fa-trash"></i></a>
 				                </div>
 				            </td>
 				        </tr>

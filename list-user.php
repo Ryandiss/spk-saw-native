@@ -10,7 +10,7 @@ require_once('template/header.php');
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 	<h1 class="h3 mb-0 text-gray-800"><i class="fas fa-fw fa-users-cog"></i> Data User</h1>
 
-	<a href="tambah-user.php" class="btn btn-primary"> <i class="fa fa-plus"></i> Tambah Data </a>
+	<a href="tambah-user.php" class="btn btn-success"> <i class="fa fa-plus"></i> Tambah Data </a>
 </div>
 
 <?php
@@ -42,7 +42,7 @@ endif;
 	<div class="card-body">
 		<div class="table-responsive">
 			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-				<thead class="bg-primary text-white">
+				<thead class="bg-danger text-white">
 					<tr align="center">
 						<th width="5%">No</th>
 						<th>Username</th>

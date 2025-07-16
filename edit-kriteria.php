@@ -102,7 +102,7 @@ if ($user_role == 'admin') {
 								</div>
 
 								<div class="form-group col-md-6">
-									<label class="font-weight-bold">Type Kriteria</label>
+									<label class="font-weight-bold">TAtribut </label>
 									<select name="type" class="form-control" required>
 										<option value="">--Pilih--</option>
 										<option value="Benefit" <?php if ($d['type'] == "Benefit") {

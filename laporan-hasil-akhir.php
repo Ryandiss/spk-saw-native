@@ -4,14 +4,14 @@ require_once('includes/init.php');
 $user_role = get_role();
 if ($user_role == 'admin' || $user_role == 'user') {
 
-	$page = "Hasil";
+	$page = "Hasil Akhir";
 	require_once('template/header.php');
 ?>
 
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800"><i class="fas fa-fw fa-chart-area"></i> Data Hasil Akhir</h1>
 
-		<a href="cetak.php" target="_blank" class="btn btn-primary"> <i class="fa fa-print"></i> Cetak Data </a>
+		<a href="cetak-hasil-akhir.php" target="_blank" class="btn btn-success"> <i class="fa fa-file-pdf"></i> Cetak Data </a>
 	</div>
 
 	<div class="card shadow mb-4">
@@ -23,9 +23,9 @@ if ($user_role == 'admin' || $user_role == 'user') {
 		<div class="card-body">
 			<div class="table-responsive">
 				<table class="table table-bordered" width="100%" cellspacing="0">
-					<thead class="bg-primary text-white">
+					<thead class="bg-danger text-white">
 						<tr align="center">
-							<th>Nama Alternatif</th>
+							<th>Nama Bakal Calon Legislatif</th>
 							<th>Nilai</th>
 							<th width="15%">Rank</th>
 					</thead>

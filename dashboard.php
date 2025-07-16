@@ -106,7 +106,7 @@ if ($user_role == 'admin' || $user_role == 'user') {
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="hasil.php" class="text-secondary text-decoration-none">Data Hasil Akhir</a></div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="laporan-hasil-akhir.php" class="text-secondary text-decoration-none">Data Hasil Akhir</a></div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-chart-area fa-2x text-gray-300"></i>
@@ -117,7 +117,7 @@ if ($user_role == 'admin' || $user_role == 'user') {
                 </div>
             </div>
         <?php
-        } elseif ($user_role == 'user') {
+        } elseif ($user_role == 'user') { //User Pimpinan Partai
         ?>
             <!-- Content Row -->
             <div class="alert alert-success">
@@ -145,7 +145,7 @@ if ($user_role == 'admin' || $user_role == 'user') {
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="hasil.php" class="text-secondary text-decoration-none">Data Hasil Akhir</a></div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="laporan-hasil-akhir.php" class="text-secondary text-decoration-none">Data Hasil Akhir</a></div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-chart-area fa-2x text-gray-300"></i>

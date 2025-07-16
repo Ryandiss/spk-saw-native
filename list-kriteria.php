@@ -8,7 +8,7 @@ require_once('template/header.php');
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 	<h1 class="h3 mb-0 text-gray-800"><i class="fas fa-fw fa-cube"></i> Data Kriteria</h1>
 
-	<a href="tambah-kriteria.php" class="btn btn-primary"> <i class="fa fa-plus"></i> Tambah Data </a>
+	<a href="tambah-kriteria.php" class="btn btn-success"> <i class="fa fa-plus"></i> Tambah Data </a>
 </div>
 
 <?php
@@ -40,12 +40,12 @@ endif;
 	<div class="card-body">
 		<div class="table-responsive">
 			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-				<thead class="bg-primary text-white">
+				<thead class="bg-danger text-white">
 					<tr align="center">
 						<th>No</th>
 						<th>Kode Kriteria</th>
 						<th>Nama Kriteria</th>
-						<th>Type</th>
+						<th>Atribut</th>
 						<th>Bobot</th>
 						<th>Cara Penilaian</th>
 						<th width="15%">Aksi</th>
@@ -67,7 +67,7 @@ endif;
 							<td>
 								<div class="btn-group" role="group">
 									<a data-toggle="tooltip" data-placement="bottom" title="Edit Data" href="edit-kriteria.php?id=<?php echo $data['id_kriteria']; ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-									<a data-toggle="tooltip" data-placement="bottom" title="Hapus Data" href="hapus-kriteria.php?id=<?php echo $data['id_kriteria']; ?>" onclick="return confirm ('Apakah anda yakin untuk meghapus data ini')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+									<a data-toggle="tooltip" data-placement="bottom" title="Hapus Data" href="hapus-kriteria.php?id=<?php echo $data['id_kriteria']; ?>" onclick="return confirm ('Apakah anda yakin untuk meghapus data ini')" class="btn btn-primary btn-sm"><i class="fa fa-trash"></i></a>
 								</div>
 							</td>
 						</tr>

@@ -119,7 +119,7 @@ if ($cek <= 0) {
 				<div class="d-sm-flex align-items-center justify-content-between">
 					<h6 class="m-0 font-weight-bold"><i class="fa fa-table"></i> <?= $data['kriteria'] . " (" . $data['kode_kriteria'] . ")" ?></h6>
 
-					<a href="#tambah<?= $data['id_kriteria']; ?>" data-toggle="modal" class="btn btn-sm btn-primary"> <i class="fa fa-plus"></i> Tambah Data </a>
+					<a href="#tambah<?= $data['id_kriteria']; ?>" data-toggle="modal" class="btn btn-sm btn-success"> <i class="fa fa-plus"></i> Tambah Data </a>
 				</div>
 			</div>
 
@@ -154,7 +154,7 @@ if ($cek <= 0) {
 			<div class="card-body">
 				<div class="table-responsive">
 					<table class="table table-bordered" width="100%" cellspacing="0">
-						<thead class="bg-primary text-white">
+						<thead class="bg-danger text-white">
 							<tr align="center">
 								<th width="5%">No</th>
 								<th>Nama Sub Kriteria</th>

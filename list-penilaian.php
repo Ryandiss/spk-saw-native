@@ -101,10 +101,10 @@ endif;
 	<div class="card-body">
 		<div class="table-responsive">
 			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-				<thead class="bg-primary text-white">
+				<thead class="bg-danger text-white">
 					<tr align="center">
 						<th width="5%">No</th>
-						<th>Peserta Duta Kampus</th>
+						<th>Nama Bakal Calon</th>
 						<th width="15%">Aksi</th>
 					</tr>
 				</thead>
@@ -127,7 +127,7 @@ endif;
 									<a data-toggle="modal" href="#set<?= $data['id_alternatif'] ?>" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Input</a>
 								<?php } else { ?>
 									<a data-toggle="modal" href="#edit<?= $data['id_alternatif'] ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> </a>
-									<a href="hapus-penilaian.php?id=<?= $data['id_alternatif']; ?>" data-toggle="tooltip" data-placement="bottom" title="Hapus Data" onclick="return confirm ('Apakah anda yakin untuk meghapus data ini')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+									<a href="hapus-penilaian.php?id=<?= $data['id_alternatif']; ?>" data-toggle="tooltip" data-placement="bottom" title="Hapus Data" onclick="return confirm ('Apakah anda yakin untuk meghapus data ini')" class="btn btn-primary btn-sm"><i class="fa fa-trash"></i></a>
 								<?php } ?>
 							</td>
 						</tr>
