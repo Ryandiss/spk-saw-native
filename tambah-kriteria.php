@@ -82,7 +82,7 @@ require_once('template/header.php');
 				</div>
 
 				<div class="form-group col-md-6">
-					<label class="font-weight-bold">Type Kriteria</label>
+					<label class="font-weight-bold">Atribut</label>
 					<select name="type" class="form-control" required>
 						<option value="">--Pilih--</option>
 						<option value="Benefit">Benefit</option>

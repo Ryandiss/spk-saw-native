@@ -188,7 +188,7 @@ if ($cek <= 0) {
 									<div class="modal-dialog">
 										<div class="modal-content">
 											<div class="modal-header">
-												<h5 class="modal-title" id="myModalLabel"><i class="fa fa-edit"></i> Edit <?= $d['sub_kriteria'] ?></h5>
+												<h5 class="modal-title" id="myModalLabel"><i class="fa fa-edit"></i> Ubah <?= $d['sub_kriteria'] ?></h5>
 												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 											</div>
 											<form action="list-sub-kriteria.php?id=<?php echo $d['id_sub_kriteria']; ?>" method="post">

@@ -66,7 +66,7 @@ if ($user_role == 'admin') {
 
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-fw fa-edit"></i> Edit Data Kriteria</h6>
+			<h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-fw fa-edit"></i> Ubah Data Kriteria</h6>
 		</div>
 
 		<form action="edit-kriteria.php?id=<?php echo $id_kriteria; ?>" method="post">
@@ -102,7 +102,7 @@ if ($user_role == 'admin') {
 								</div>
 
 								<div class="form-group col-md-6">
-									<label class="font-weight-bold">TAtribut </label>
+									<label class="font-weight-bold">Atribut </label>
 									<select name="type" class="form-control" required>
 										<option value="">--Pilih--</option>
 										<option value="Benefit" <?php if ($d['type'] == "Benefit") {

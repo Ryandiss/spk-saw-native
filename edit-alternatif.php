@@ -79,7 +79,7 @@ require_once('template/header.php');
 	<form action="edit-alternatif.php?id=<?php echo $id_alternatif; ?>" method="post">
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
-				<h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-fw fa-edit"></i> Edit Data Bakal Calon Legislatif</h6>
+				<h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-fw fa-edit"></i> Ubah Data Bakal Calon Legislatif</h6>
 			</div>
 			<?php
 			if (!$id_alternatif) {

@@ -72,7 +72,7 @@ if ($user_role == 'admin' || $user_role == 'user') {
 	<form action="" method="post">
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
-				<h6 class="m-0 font-weight-bold"><i class="fas fa-fw fa-edit"></i> Edit Data Profile</h6>
+				<h6 class="m-0 font-weight-bold"><i class="fas fa-fw fa-edit"></i> Ubah Data Profile</h6>
 			</div>
 			<?php
 			if (!$id_user) {
