@@ -63,7 +63,7 @@ endif;
 ?>
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-	<h1 class="h3 mb-0 text-gray-800"><i class="fas fa-fw fa-cubes"></i> Data Sub Kriteria</h1>
+	<h1 class="h3 mb-0 text-gray-800"><i class="fas fa-fw fa-cubes"></i> Data Subkriteria</h1>
 </div>
 
 <?php if (!empty($errors)) : ?>
@@ -100,12 +100,12 @@ if ($cek <= 0) {
 	<div class="card shadow mb-4">
 		<!-- /.card-header -->
 		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold"><i class="fa fa-table"></i> Daftar Data Sub Kriteria</h6>
+			<h6 class="m-0 font-weight-bold"><i class="fa fa-table"></i> Daftar Data Subkriteria</h6>
 		</div>
 
 		<div class="card-body">
 			<div class="alert alert-info">
-				Untuk membuat sub kriteria, silahkan ubah cara penilaian di menu kriteria dengan pilih sub kriteria.
+				Untuk membuat subkriteria, silahkan ubah cara penilaian di menu kriteria dengan pilih subkriteria.
 			</div>
 		</div>
 	</div>
@@ -134,7 +134,7 @@ if ($cek <= 0) {
 							<div class="modal-body">
 								<input type="text" name="id_kriteria" value="<?= $data['id_kriteria']; ?>" hidden>
 								<div class="form-group">
-									<label class="font-weight-bold">Nama Sub Kriteria</label>
+									<label class="font-weight-bold">Nama Subkriteria</label>
 									<input autocomplete="off" type="text" class="form-control" name="nama" required>
 								</div>
 								<div class="form-group">
@@ -157,7 +157,7 @@ if ($cek <= 0) {
 						<thead class="bg-danger text-white">
 							<tr align="center">
 								<th width="5%">No</th>
-								<th>Nama Sub Kriteria</th>
+								<th>Nama Subkriteria</th>
 								<th>Nilai</th>
 								<th width="15%">Aksi</th>
 							</tr>
@@ -196,7 +196,7 @@ if ($cek <= 0) {
 												<div class="modal-body">
 													<input type="text" name="id_kriteria" value="<?= $d['id_kriteria'] ?>" hidden>
 													<div class="form-group">
-														<label class="font-weight-bold">Nama Sub Kriteria</label>
+														<label class="font-weight-bold">Nama Subkriteria</label>
 														<input type="text" autocomplete="off" class="form-control" value="<?= $d['sub_kriteria'] ?>" name="nama" required>
 													</div>
 													<div class="form-group">

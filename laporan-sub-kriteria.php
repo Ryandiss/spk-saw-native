@@ -11,7 +11,7 @@ require_once('template/header.php');
 ?>
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-	<h1 class="h3 mb-0 text-gray-800"><i class="fas fa-fw fa-cubes"></i> Laporan Data Sub Kriteria</h1>
+	<h1 class="h3 mb-0 text-gray-800"><i class="fas fa-fw fa-cubes"></i> Laporan Data Subkriteria</h1>
 	<a href="cetak-sub-kriteria.php" target="_blank" class="btn btn-success"><i class="fa fa-file-pdf"></i> Cetak Data</a>
 </div>
 

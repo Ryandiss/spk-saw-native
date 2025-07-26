@@ -63,7 +63,7 @@ if ($user_role == 'admin' || $user_role == 'user') {
 	<div class="card shadow mb-4">
 		<!-- /.card-header -->
 		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold"><i class="fa fa-table"></i> Matrix Keputusan (X)</h6>
+			<h6 class="m-0 font-weight-bold"><i class="fa fa-table"></i> Matriks Keputusan (X)</h6>
 		</div>
 
 		<div class="card-body">

@@ -46,7 +46,7 @@ if ($user_role == 'admin' || $user_role == 'user') {
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="list-sub-kriteria.php" class="text-secondary text-decoration-none">Data Sub Kriteria</a></div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="list-sub-kriteria.php" class="text-secondary text-decoration-none">Data Subkriteria</a></div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-cubes fa-2x text-gray-300"></i>

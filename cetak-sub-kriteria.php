@@ -34,7 +34,7 @@ function tanggal_indo($tanggal, $tampil_hari = true) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laporan Data Sub Kriteria</title>
+    <title>Laporan Data Subkriteria</title>
     <style>
         body {
             font-family: Arial, sans-serif;
