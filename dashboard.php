@@ -6,6 +6,9 @@ $user_role = get_role();
 if ($user_role == 'admin' || $user_role == 'user') {
     $page = "Dashboard";
     require_once('template/header.php');
+$jumlah_kriteria     = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as total FROM kriteria"))['total'];
+$jumlah_subkriteria  = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as total FROM sub_kriteria"))['total'];
+$jumlah_alternatif   = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as total FROM alternatif"))['total'];
 
 ?>
 
@@ -31,7 +34,7 @@ if ($user_role == 'admin' || $user_role == 'user') {
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="list-kriteria.php" class="text-secondary text-decoration-none">Data Kriteria</a></div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="list-kriteria.php" class="text-secondary text-decoration-none">Data Kriteria <br><?php echo $jumlah_kriteria; ?></a></div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-cube fa-2x text-gray-300"></i>
@@ -46,7 +49,7 @@ if ($user_role == 'admin' || $user_role == 'user') {
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="list-sub-kriteria.php" class="text-secondary text-decoration-none">Data Subkriteria</a></div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="list-sub-kriteria.php" class="text-secondary text-decoration-none">Data Subkriteria <br><?php echo $jumlah_subkriteria; ?></a></div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-cubes fa-2x text-gray-300"></i>
@@ -61,7 +64,7 @@ if ($user_role == 'admin' || $user_role == 'user') {
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="list-alternatif.php" class="text-secondary text-decoration-none">Data Alternatif</a></div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="list-alternatif.php" class="text-secondary text-decoration-none">Data Bacaleg <br><?php echo $jumlah_alternatif; ?></a></div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-users fa-2x text-gray-300"></i>
