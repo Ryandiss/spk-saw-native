@@ -134,7 +134,7 @@
         </div>
 
 
-        <li class="nav-item <?= ($page == "User") ? "active" : '' ?>">
+        <<li class="nav-item <?= ($page == "User") ? "active" : '' ?>">
           <a class="nav-link" href="list-user.php">
             <i class="fas fa-fw fa-users-cog"></i>
             <span>Data User</span></a>

@@ -138,7 +138,7 @@ function tanggal_indo($tanggal, $tampil_hari = true) {
         <tr>
             <td></td>
             <td class="kanan">
-                Depok, <?= tanggal_indo(date('Y-m-d')) ?><br><br><br><br>
+                Depok, <?= tanggal_indo(date('Y-m-d')) ?><br><br><br><br><br><br>
                 <b><u>Hendrik Tangke Allo, S.Sos.</u></b><br>
                 Ketua DPC PDI Perjuangan Kota Depok
             </td>

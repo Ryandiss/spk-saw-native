@@ -152,7 +152,7 @@ while ($alt = mysqli_fetch_array($q2)) {
         <tr>
             <td></td>
             <td class="kanan">
-                Depok, <?= tanggal_indo(date('Y-m-d')) ?><br><br><br><br>
+                Depok, <?= tanggal_indo(date('Y-m-d')) ?><br><br><br><br><br><br>
                 <b><u>Hendrik Tangke Allo, S.Sos.</u></b><br>
                 Ketua DPC PDI Perjuangan Kota Depok
             </td>
