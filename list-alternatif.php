@@ -68,7 +68,7 @@ endif;
 				            <td align="left"><?php echo $data['alamat']; ?></td>
 				            <td>
 				                <div class="btn-group" role="group">
-				                    <a data-toggle="tooltip" data-placement="bottom" title="Edit Data" href="edit-alternatif.php?id=<?php echo $data['id_alternatif']; ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+				                    <a data-toggle="tooltip" data-placement="bottom" title="Ubah Data" href="edit-alternatif.php?id=<?php echo $data['id_alternatif']; ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
 				                    <a data-toggle="tooltip" data-placement="bottom" title="Hapus Data" href="hapus-alternatif.php?id=<?php echo $data['id_alternatif']; ?>" onclick="return confirm ('Apakah anda yakin untuk meghapus data ini')" class="btn btn-primary btn-sm"><i class="fa fa-trash"></i></a>
 				                </div>
 				            </td>

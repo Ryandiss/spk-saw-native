@@ -221,6 +221,13 @@ if ($cek <= 0) {
 				</div>
 			</div>
 		</div>
+<?php if (isset($_GET['show_modal']) && $_GET['show_modal'] == 'true' && isset($_GET['id_kriteria'])): ?>
+<script>
+    $(document).ready(function () {
+        $('#tambah<?= $_GET['id_kriteria'] ?>').modal('show');
+    });
+</script>
+<?php endif; ?>
 
 <?php
 	}

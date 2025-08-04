@@ -5,6 +5,7 @@ $page = "Kriteria";
 require_once('template/header.php');
 ?>
 
+
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 	<h1 class="h3 mb-0 text-gray-800"><i class="fas fa-fw fa-cube"></i> Data Kriteria</h1>
 
@@ -24,6 +25,9 @@ switch ($status):
 	case 'sukses-edit':
 		$msg = 'Data behasil diupdate';
 		break;
+		case 'sukses-tambah':
+		$msg = 'Data Kriteria dan Subkriteria berhasil ditambahkan';
+		break;
 endswitch;
 
 if ($msg) :
@@ -39,42 +43,76 @@ endif;
 
 	<div class="card-body">
 		<div class="table-responsive">
-			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			<table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0" style="border: 1px solid #dee2e6;">
 				<thead class="bg-danger text-white">
-					<tr align="center">
-						<th>No</th>
-						<th>Kode Kriteria</th>
-						<th>Nama Kriteria</th>
-						<th>Atribut</th>
-						<th>Bobot</th>
-						<th>Cara Penilaian</th>
-						<th width="15%">Aksi</th>
-					</tr>
-				</thead>
+  <tr align="center">
+    <th>No</th>
+    <th>Kode Kriteria</th>
+    <th>Nama Kriteria</th>
+    <th>Nama Subkriteria</th>
+    <th>Nilai Subkriteria</th>
+    <th>Atribut</th>
+    <th>Bobot</th>
+    <th width="15%">Aksi</th>
+  </tr>
+</thead>
+
 				<tbody>
-					<?php
-					$no = 1;
-					$query = mysqli_query($koneksi, "SELECT * FROM kriteria ORDER BY kode_kriteria ASC");
-					while ($data = mysqli_fetch_array($query)) :
-					?>
-						<tr align="center">
-							<td><?php echo $no; ?></td>
-							<td><?php echo $data['kode_kriteria']; ?></td>
-							<td align="left"><?php echo $data['kriteria']; ?></td>
-							<td><?php echo $data['type']; ?></td>
-							<td><?php echo $data['bobot']; ?></td>
-							<td><?php echo ($data['ada_pilihan']) ? 'Pilihan Sub Kriteria' : 'Input Langsung'; ?></td>
-							<td>
-								<div class="btn-group" role="group">
-									<a data-toggle="tooltip" data-placement="bottom" title="Edit Data" href="edit-kriteria.php?id=<?php echo $data['id_kriteria']; ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-									<a data-toggle="tooltip" data-placement="bottom" title="Hapus Data" href="hapus-kriteria.php?id=<?php echo $data['id_kriteria']; ?>" onclick="return confirm ('Apakah anda yakin untuk meghapus data ini')" class="btn btn-primary btn-sm"><i class="fa fa-trash"></i></a>
-								</div>
-							</td>
-						</tr>
-					<?php
-						$no++;
-					endwhile; ?>
-				</tbody>
+<?php
+$no = 1;
+$last_id = null;
+
+function getJumlahSubkriteria($koneksi, $id_kriteria) {
+  $query = mysqli_query($koneksi, "SELECT COUNT(*) as jumlah FROM sub_kriteria WHERE id_kriteria = $id_kriteria");
+  $data = mysqli_fetch_assoc($query);
+  return max(1, $data['jumlah']); // jika tidak ada subkriteria, minimal 1
+}
+
+$query = mysqli_query($koneksi, "
+  SELECT k.*, s.sub_kriteria, s.nilai 
+  FROM kriteria k 
+  LEFT JOIN sub_kriteria s ON k.id_kriteria = s.id_kriteria 
+  ORDER BY k.kode_kriteria ASC, s.nilai DESC
+");
+
+while ($data = mysqli_fetch_array($query)) :
+  $is_new_kriteria = $last_id !== $data['id_kriteria'];
+  if ($is_new_kriteria) {
+    $rowspan = getJumlahSubkriteria($koneksi, $data['id_kriteria']);
+  }
+?>
+  <tr align="center">
+    <?php if ($is_new_kriteria): ?>
+      <td rowspan="<?= $rowspan; ?>"><?php echo $no; ?></td>
+      <td rowspan="<?= $rowspan; ?>"><?php echo $data['kode_kriteria']; ?></td>
+      <td align="left" rowspan="<?= $rowspan; ?>"><?php echo $data['kriteria']; ?></td>
+    <?php endif; ?>
+
+    <td align="left"><?php echo $data['sub_kriteria'] ?? '-'; ?></td>
+    <td><?php echo $data['nilai'] ?? '-'; ?></td>
+
+    <?php if ($is_new_kriteria): ?>
+      <td rowspan="<?= $rowspan; ?>"><?php echo $data['type']; ?></td>
+      <td rowspan="<?= $rowspan; ?>"><?php echo $data['bobot']; ?></td>
+      <td rowspan="<?= $rowspan; ?>">
+        <div class="btn-group" role="group">
+          <a data-toggle="tooltip" data-placement="bottom" title="Ubah Data" href="edit-kriteria.php?id=<?php echo $data['id_kriteria']; ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+          <a data-toggle="tooltip" data-placement="bottom" title="Hapus Data Kriteria" href="hapus-kriteria.php?id=<?php echo $data['id_kriteria']; ?>" onclick="return confirm ('Apakah anda yakin untuk meghapus data ini')" class="btn btn-primary btn-sm"><i class="fa fa-trash"></i></a>
+        </div>
+      </td>
+    <?php endif; ?>
+  </tr>
+<?php
+  if ($is_new_kriteria) {
+    $no++;
+    $last_id = $data['id_kriteria'];
+  }
+endwhile;
+?>
+</tbody>
+
+
+
 			</table>
 		</div>
 	</div>

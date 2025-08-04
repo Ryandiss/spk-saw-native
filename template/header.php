@@ -77,11 +77,11 @@
             <span>Data Kriteria</span></a>
         </li>
 
-        <li class="nav-item <?= ($page == "Sub Kriteria") ? "active" : '' ?>">
+        <!--<li class="nav-item <?= ($page == "Sub Kriteria") ? "active" : '' ?>">
           <a class="nav-link" href="list-sub-kriteria.php">
             <i class="fas fa-fw fa-cubes"></i>
             <span>Data Subkriteria</span></a>
-        </li>
+        </li>-->
 
         <li class="nav-item <?= ($page == "Penilaian" || $page == "Perhitungan") ? "active" : '' ?>">
           <a class="nav-link collapsed navbar-toggler" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
