@@ -74,7 +74,7 @@
         <li class="nav-item <?= ($page == "Kriteria") ? "active" : '' ?>">
           <a class="nav-link" href="list-kriteria.php">
             <i class="fas fa-fw fa-cube"></i>
-            <span>Data Kriteria</span></a>
+            <span>Data Kriteria & Sub</span></a>
         </li>
 
         <!--<li class="nav-item <?= ($page == "Sub Kriteria") ? "active" : '' ?>">
@@ -116,8 +116,8 @@
     ) ? "show" : "" ?>" aria-labelledby="headingLaporan" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <a class="collapse-item <?= ($page == 'Laporan Bacaleg') ? 'active' : '' ?>" href="laporan-bacaleg.php">Laporan Bacaleg</a>
-     <a class="collapse-item <?= ($page == 'Laporan Kriteria') ? 'active' : '' ?>" href="laporan-kriteria.php">Laporan Kriteria</a>
-      <a class="collapse-item <?= ($page == 'Laporan Sub Kriteria') ? 'active' : '' ?>" href="laporan-sub-kriteria.php">Laporan Subkriteria</a>
+     <a class="collapse-item <?= ($page == 'Laporan Kriteria') ? 'active' : '' ?>" href="laporan-kriteria.php">Laporan Kriteria & Sub</a>
+      <!--<a class="collapse-item <?= ($page == 'Laporan Sub Kriteria') ? 'active' : '' ?>" href="laporan-sub-kriteria.php">Laporan Subkriteria</a>-->
       <a class="collapse-item <?= ($page == 'Laporan Penilaian') ? 'active' : '' ?>" href="laporan-penilaian.php">Laporan Penilaian</a>
       <a class="collapse-item <?= ($page == 'Hasil Akhir') ? 'active' : '' ?>" href="laporan-hasil-akhir.php">Hasil Akhir</a>
     </div>

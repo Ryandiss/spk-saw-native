@@ -17,7 +17,13 @@ if (isset($_POST['submit'])) :
     if (!$dapil) $errors[] = 'Daerah pencalonan tidak boleh kosong';
     if (!$kta) $errors[] = 'No. KTA tidak boleh kosong';
     if (!$alamat) $errors[] = 'Alamat tidak boleh kosong';
-
+        // Validasi unik KTA
+    if (empty($errors)) {
+        $cek_duplikat = mysqli_query($koneksi, "SELECT * FROM alternatif WHERE kta = '$kta'");
+        if (mysqli_num_rows($cek_duplikat) > 0) {
+            $errors[] = 'No. KTA yang dimasukkan sudah terdaftar di database';
+        }
+    }
     // Jika lolos validasi lakukan penyimpanan
     if (empty($errors)) :
         $simpan = mysqli_query($koneksi, "INSERT INTO alternatif (id_alternatif, alternatif, dapil, kta, alamat) 

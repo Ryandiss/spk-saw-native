@@ -126,7 +126,15 @@ endif;
 								<?php if ($cek_tombol == 0) { ?>
 									<a data-toggle="modal" href="#set<?= $data['id_alternatif'] ?>" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Input</a>
 								<?php } else { ?>
-									<a data-toggle="modal" href="#edit<?= $data['id_alternatif'] ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> </a>
+									<a data-toggle="tooltip" 
+									   href="#edit<?= $data['id_alternatif'] ?>" 
+									   class="btn btn-warning btn-sm" 
+									   title="Isi Data Nilai" 
+									   data-toggle="tooltip" 
+									   data-placement="bottom">
+									   <i class="fas fa-pen-alt"></i>
+									</a>
+
 									<a href="hapus-penilaian.php?id=<?= $data['id_alternatif']; ?>" data-toggle="tooltip" data-placement="bottom" title="Hapus Data" onclick="return confirm ('Apakah anda yakin untuk meghapus data ini')" class="btn btn-primary btn-sm"><i class="fa fa-trash"></i></a>
 								<?php } ?>
 							</td>

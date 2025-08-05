@@ -7,7 +7,7 @@ if ($user_role == 'admin' || $user_role == 'user') {
     $page = "Dashboard";
     require_once('template/header.php');
 $jumlah_kriteria     = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as total FROM kriteria"))['total'];
-$jumlah_subkriteria  = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as total FROM sub_kriteria"))['total'];
+$jumlah_user  = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as total FROM user"))['total'];
 $jumlah_alternatif   = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as total FROM alternatif"))['total'];
 
 ?>
@@ -45,21 +45,6 @@ $jumlah_alternatif   = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*
                 </div>
 
                 <div class="col-xl-4 col-md-6 mb-4">
-                    <div class="card border-left-secondary shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="list-sub-kriteria.php" class="text-secondary text-decoration-none">Data Subkriteria <br><?php echo $jumlah_subkriteria; ?></a></div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-cubes fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-4 col-md-6 mb-4">
                     <div class="card border-left-primary shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
@@ -68,6 +53,21 @@ $jumlah_alternatif   = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-users fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-secondary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="list-user.php" class="text-secondary text-decoration-none">Data User <br><?php echo $jumlah_user; ?></a></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-users-cog fa-2x text-gray-300"></i>
                                 </div>
                             </div>
                         </div>
@@ -119,6 +119,7 @@ $jumlah_alternatif   = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*
                     </div>
                 </div>
             </div>
+
         <?php
         } elseif ($user_role == 'user') { //User Pimpinan Partai
         ?>

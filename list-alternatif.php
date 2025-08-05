@@ -45,12 +45,12 @@ endif;
 			
 				<thead class="bg-danger text-white">
 				    <tr align="center">
-				        <th width="5%">No</th>
+				        <th>No</th>
 				        <th>Nama Bakal Calon</th>
 				        <th>Daerah Pencalonan</th>
 				        <th>No. KTA</th>
 				        <th>Alamat</th>
-				        <th width="15%">Aksi</th>
+				        <th width="10%">Aksi</th>
 				    </tr>
 				</thead>
 				<tbody>

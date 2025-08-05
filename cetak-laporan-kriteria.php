@@ -104,37 +104,77 @@ function tanggal_indo($tanggal, $tampil_hari = true) {
 
   <!-- Judul -->
   <div style="text-align:center; margin-bottom: 20px;">
-    <h4>Laporan Data Kriteria</h4>
+    <h4>Laporan Data Kriteria & Subkriteria</h4>
   </div>
 
   <!-- Tabel Kriteria -->
   <table width="100%" cellspacing="0" cellpadding="5" border="1">
-    <thead>
-      <tr align="center">
-        <th>No</th>
-        <th>Kode Kriteria</th>
-        <th>Nama Kriteria</th>
-        <th>Atribut</th>
-        <th>Bobot</th>
-        <th>Cara Penilaian</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
-      $no = 1;
-      $query = mysqli_query($koneksi, "SELECT * FROM kriteria ORDER BY kode_kriteria ASC");
-      while ($data = mysqli_fetch_array($query)) {
-      ?>
-        <tr>
-          <td align="center"><?= $no++; ?></td>
-          <td><?= $data['kode_kriteria']; ?></td>
-          <td><?= $data['kriteria']; ?></td>
-          <td><?= $data['type']; ?></td>
-          <td><?= $data['bobot']; ?></td>
-          <td><?= ($data['ada_pilihan']) ? 'Pilihan Sub Kriteria' : 'Input Langsung'; ?></td>
-        </tr>
-      <?php } ?>
-    </tbody>
+<thead class="bg-danger text-white">
+  <tr align="center">
+    <th>No</th>
+    <th>Kode Kriteria</th>
+    <th>Nama Kriteria</th>
+    <th>Nama Subkriteria</th>
+    <th>Nilai Subkriteria</th>
+    <th>Atribut</th>
+    <th>Bobot</th>
+    <!--<th width="15%">Aksi</th>-->
+  </tr>
+</thead>
+
+                <tbody>
+<?php
+$no = 1;
+$last_id = null;
+
+function getJumlahSubkriteria($koneksi, $id_kriteria) {
+  $query = mysqli_query($koneksi, "SELECT COUNT(*) as jumlah FROM sub_kriteria WHERE id_kriteria = $id_kriteria");
+  $data = mysqli_fetch_assoc($query);
+  return max(1, $data['jumlah']); // jika tidak ada subkriteria, minimal 1
+}
+
+$query = mysqli_query($koneksi, "
+  SELECT k.*, s.sub_kriteria, s.nilai 
+  FROM kriteria k 
+  LEFT JOIN sub_kriteria s ON k.id_kriteria = s.id_kriteria 
+  ORDER BY k.kode_kriteria ASC, s.nilai DESC
+");
+
+while ($data = mysqli_fetch_array($query)) :
+  $is_new_kriteria = $last_id !== $data['id_kriteria'];
+  if ($is_new_kriteria) {
+    $rowspan = getJumlahSubkriteria($koneksi, $data['id_kriteria']);
+  }
+?>
+  <tr align="center">
+    <?php if ($is_new_kriteria): ?>
+      <td rowspan="<?= $rowspan; ?>"><?php echo $no; ?></td>
+      <td rowspan="<?= $rowspan; ?>"><?php echo $data['kode_kriteria']; ?></td>
+      <td align="left" rowspan="<?= $rowspan; ?>"><?php echo $data['kriteria']; ?></td>
+    <?php endif; ?>
+
+    <td align="left"><?php echo $data['sub_kriteria'] ?? '-'; ?></td>
+    <td><?php echo $data['nilai'] ?? '-'; ?></td>
+
+    <?php if ($is_new_kriteria): ?>
+      <td rowspan="<?= $rowspan; ?>"><?php echo $data['type']; ?></td>
+      <td rowspan="<?= $rowspan; ?>"><?php echo $data['bobot']; ?></td>
+      <!--<td rowspan="<?= $rowspan; ?>">-->
+        <!--<div class="btn-group" role="group">
+          <a data-toggle="tooltip" data-placement="bottom" title="Ubah Data" href="edit-kriteria.php?id=<?php echo $data['id_kriteria']; ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+          <a data-toggle="tooltip" data-placement="bottom" title="Hapus Data Kriteria" href="hapus-kriteria.php?id=<?php echo $data['id_kriteria']; ?>" onclick="return confirm ('Apakah anda yakin untuk meghapus data ini')" class="btn btn-primary btn-sm"><i class="fa fa-trash"></i></a>
+        </div>-->
+      </td>
+    <?php endif; ?>
+  </tr>
+<?php
+  if ($is_new_kriteria) {
+    $no++;
+    $last_id = $data['id_kriteria'];
+  }
+endwhile;
+?>
+</tbody>
   </table>
 
   <!-- Tanda Tangan -->
@@ -154,10 +194,10 @@ function tanggal_indo($tanggal, $tampil_hari = true) {
   </div>
 
   <!-- Footer -->
-  <div class="footer-cetak">
+  <!--<div class="footer-cetak">
     Sekretariat : Komplek Ruko Grand Depok City, Sektor Anggrek 1, Blok C1 No. 25, Kota Depok, Jawa Barat <br>
     Email : dpcpdiperjuangankotadepok@gmail.com &nbsp; | &nbsp; @pdiperjuangan.depok
-  </div>
+  </div>-->
 
 </div>
 

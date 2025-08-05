@@ -23,7 +23,13 @@ if (isset($_POST['submit'])) :
 	if (!$nama) {
 		$errors[] = 'Nama tidak boleh kosong';
 	}
-
+	// Validasi unik KTA (tidak boleh sama dengan milik calon lain)
+	if (empty($errors)) {
+		$cek_kta = mysqli_query($koneksi, "SELECT * FROM alternatif WHERE kta = '$kta' AND id_alternatif != '$id_alternatif'");
+		if (mysqli_num_rows($cek_kta) > 0) {
+			$errors[] = 'No. KTA ini sudah digunakan oleh calon lain.';
+		}
+	}
 	// Jika lolos validasi, lakukan update
 	if (empty($errors)) :
 
