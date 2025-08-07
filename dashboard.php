@@ -9,9 +9,17 @@ if ($user_role == 'admin' || $user_role == 'user') {
 $jumlah_kriteria     = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as total FROM kriteria"))['total'];
 $jumlah_user  = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as total FROM user"))['total'];
 $jumlah_alternatif   = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as total FROM alternatif"))['total'];
-
+$jumlah_sub_kriteria   = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as total FROM sub_kriteria"))['total'];
 ?>
+<style>
+    .text-magenta {
+        color: magenta !important; /* atau pakai kode warna: #FF00FF */
+    }
 
+    .border-left-pastel-orange {
+        border-left: 0.25rem solid #F08080 !important;
+    }
+</style>
     <div class="mb-4">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -30,7 +38,7 @@ $jumlah_alternatif   = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*
             <div class="row">
 
                 <div class="col-xl-4 col-md-6 mb-4">
-                    <div class="card border-left-info shadow h-100 py-2">
+                    <div class="card border-left-primary shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
@@ -43,9 +51,23 @@ $jumlah_alternatif   = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*
                         </div>
                     </div>
                 </div>
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="list-kriteria.php" class="text-secondary text-decoration-none">Data Subkriteria <br><?php echo $jumlah_sub_kriteria; ?></a></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-cube fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="col-xl-4 col-md-6 mb-4">
-                    <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card border-left-danger shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
@@ -90,7 +112,7 @@ $jumlah_alternatif   = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*
                 </div>
 
                 <div class="col-xl-4 col-md-6 mb-4">
-                    <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card border-left-pastel-orange shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">

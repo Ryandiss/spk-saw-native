@@ -72,9 +72,9 @@ if (isset($_POST['edit'])) :
 		}
 
 		if ($simpan) {
-			$sts[] = 'Data berhasil diupdate';
+			$sts[] = 'Data berhasil di simpan';
 		} else {
-			$sts[] = 'Data gagal diupdate';
+			$sts[] = 'Data gagal di simpan';
 		}
 	endif;
 endif;
@@ -126,11 +126,10 @@ endif;
 								<?php if ($cek_tombol == 0) { ?>
 									<a data-toggle="modal" href="#set<?= $data['id_alternatif'] ?>" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Input</a>
 								<?php } else { ?>
-									<a data-toggle="tooltip" 
+									<a data-toggle="modal" 
 									   href="#edit<?= $data['id_alternatif'] ?>" 
 									   class="btn btn-warning btn-sm" 
 									   title="Isi Data Nilai" 
-									   data-toggle="tooltip" 
 									   data-placement="bottom">
 									   <i class="fas fa-pen-alt"></i>
 									</a>
@@ -190,7 +189,7 @@ endif;
 							<div class="modal-dialog">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h5 class="modal-title" id="myModalLabel"><i class="fa fa-edit"></i> Ubah Penilaian</h5>
+										<h5 class="modal-title" id="myModalLabel"><i class="fa fa-edit"></i> Isi Penilaian</h5>
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 									</div>
 									<form action="" method="post">
@@ -229,7 +228,7 @@ endif;
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-times"></i> Batal</button>
-											<button type="submit" name="edit" class="btn btn-success"><i class="fa fa-save"></i> Update</button>
+											<button type="submit" name="edit" class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>
 										</div>
 									</form>
 								</div>

@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
   $nama = $_POST['nama'];
   $type = $_POST['type'];
   $bobot = $_POST['bobot'];
-  $ada_pilihan = $_POST['ada_pilihan'];
+  $ada_pilihan = 1; // Selalu 1 (karena disembunyikan)
 
   // Validasi
   if (!$kode_kriteria) $errors[] = 'Kode kriteria tidak boleh kosong';
@@ -24,8 +24,21 @@ if (isset($_POST['submit'])) {
   if (!$bobot) $errors[] = 'Bobot kriteria tidak boleh kosong';
 
   if (empty($errors)) {
+    $cek_duplikat = mysqli_query($koneksi, "SELECT * FROM kriteria WHERE kode_kriteria = '$kode_kriteria' AND id_kriteria != '$id_kriteria'");
+    if (mysqli_num_rows($cek_duplikat) > 0) {
+      $errors[] = 'kode_kriteria_duplicated';
+    }
+  }
+
+  if (empty($errors)) {
     // Update kriteria
-    $update = mysqli_query($koneksi, "UPDATE kriteria SET kode_kriteria = '$kode_kriteria', kriteria = '$nama', type = '$type', bobot = '$bobot', ada_pilihan = '$ada_pilihan' WHERE id_kriteria = '$id_kriteria'");
+    $update = mysqli_query($koneksi, "UPDATE kriteria 
+      SET kode_kriteria = '$kode_kriteria', 
+          kriteria = '$nama', 
+          type = '$type', 
+          bobot = '$bobot', 
+          ada_pilihan = '$ada_pilihan' 
+      WHERE id_kriteria = '$id_kriteria'");
 
     // Subkriteria
     if (!empty($_POST['id_sub'])) {
@@ -101,7 +114,16 @@ $d = mysqli_fetch_assoc($data);
       <div class="row">
         <div class="form-group col-md-6">
           <label class="font-weight-bold">Kode Kriteria</label>
-          <input type="text" name="kode_kriteria" value="<?php echo $d['kode_kriteria']; ?>" class="form-control" required>
+          <input type="text" 
+                 name="kode_kriteria" 
+                 value="<?php echo isset($_POST['kode_kriteria']) ? htmlspecialchars($_POST['kode_kriteria']) : $d['kode_kriteria']; ?>" 
+                 class="form-control <?php echo in_array('kode_kriteria_duplicated', $errors) ? 'is-invalid' : ''; ?>" 
+                 required>
+          <?php if (in_array('kode_kriteria_duplicated', $errors)) : ?>
+            <div class="invalid-feedback">
+              Kode Kriteria sudah terdaftar di database.
+            </div>
+          <?php endif; ?>
         </div>
         <div class="form-group col-md-6">
           <label class="font-weight-bold">Nama Kriteria</label>
@@ -118,14 +140,9 @@ $d = mysqli_fetch_assoc($data);
         <div class="form-group col-md-6">
           <label class="font-weight-bold">Bobot</label>
           <input type="number" step="0.01" name="bobot" value="<?php echo $d['bobot']; ?>" class="form-control" required>
-        </div>
-        <div class="form-group col-md-6">
-          <label class="font-weight-bold">Cara Penilaian</label>
-          <select name="ada_pilihan" class="form-control" required>
-            <option value="">--Pilih--</option>
-            <option value="0" <?php if ($d['ada_pilihan'] == "0") echo "selected"; ?>>Inputan Langsung</option>
-            <option value="1" <?php if ($d['ada_pilihan'] == "1") echo "selected"; ?>>Pilihan Sub Kriteria</option>
-          </select>
+          <small class="form-text text-muted">
+            *Bobot menggunakan skala 0–1, dan total seluruh bobot harus berjumlah 1.0.
+          </small>
         </div>
       </div>
     </div>
@@ -167,7 +184,7 @@ $d = mysqli_fetch_assoc($data);
                 <td class="text-center">
                   <a data-toggle="tooltip" data-placement="bottom" href="hapus-sub-kriteria.php?id=<?= $sub['id_sub_kriteria']; ?>&id_kriteria=<?= $id_kriteria; ?>"
                      class="btn btn-primary btn-sm" 
-                     onclick="return confirm('Apakah Anda Yakin ingin menghapus subkriteria ini?');"title="Hapus Data Subkriteria">
+                     onclick="return confirm('Apakah Anda Yakin ingin menghapus subkriteria ini?');" title="Hapus Data Subkriteria">
                      <i class="fa fa-trash"></i>
                   </a>
                 </td>
@@ -178,7 +195,13 @@ $d = mysqli_fetch_assoc($data);
       </div>
     </div>
     <div class="card-footer text-right">
-      <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-save"></i> Update</button>
+      <button 
+      type="submit" 
+      name="submit" 
+      class="btn btn-success" 
+      onclick="return confirm('Apakah Anda yakin ingin mengupdate data ini?');">
+      <i class="fa fa-save"></i> Update
+    </button>
     </div>
   </div>
 </form>
@@ -198,7 +221,7 @@ document.getElementById('tambah-subkriteria').addEventListener('click', function
       <input type="number" name="nilai[]" step="0.01" class="form-control" placeholder="Nilai">
     </td>
     <td class="text-center">
-      <button type="button" class="btn btn-danger btn-sm" onclick="this.closest('tr').remove(); updateNoUrut();">
+      <button type="button" class="btn btn-primary btn-sm" onclick="this.closest('tr').remove(); updateNoUrut();">
         <i class="fa fa-trash"></i>
       </button>
     </td>
@@ -220,6 +243,5 @@ function updateNoUrut() {
 // Jalankan saat halaman pertama kali dimuat, untuk koreksi urutan jika ada
 document.addEventListener('DOMContentLoaded', updateNoUrut);
 </script>
-
 
 <?php require_once('template/footer.php'); ?>
