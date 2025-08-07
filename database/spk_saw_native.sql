@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2025 at 01:38 PM
+-- Generation Time: Aug 07, 2025 at 11:39 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -40,15 +40,16 @@ CREATE TABLE `alternatif` (
 --
 
 INSERT INTO `alternatif` (`id_alternatif`, `alternatif`, `dapil`, `kta`, `alamat`) VALUES
-(31, 'Kawah Alfa Tarna, S.H.', 'Sukmajaya', '32761010060107190001', 'Perum Pesona Laguna Blok F2/30 Rt. 006 Rw. 020 Kel. Cilangkap Kec. Tapos'),
-(32, 'Achmad Nisran Siregar, S.E.', 'Sukmajaya', '32760510030607820001', 'Link. Cipayung Jl. Mandai IV No. 73 Rt. 007 Rw. 002 Kel. Abadi Jaya Kec. Sukmajaya'),
-(33, 'Fransiscus Samosir', 'Sukmajaya', '3276051004140580001', 'Perum Pesona Khayangan Blok DP/10 Kel. Mekarjaya Kec. Sukmajaya'),
-(34, 'Rahma Nur Agnitya Charliyan, Drg', 'Sukmajaya', '32732010042005860001', 'Jl. Antapani Lama No. 12 Rt. 003 Rw. 009 Kel. Antapani Tengah Kec. Antapani, Bandung'),
-(35, 'Natalia Sibarani, A.Md.Keb.', 'Sukmajaya', '32.76.05.005.241271.2916', 'Jl. Jasawarga No. 103 Kp. Sugutamu Kel. Baktijaya Kec. Sukmajaya'),
-(36, 'Ageng Sedayu, S.T., M.M.', 'Sukmajaya', '32760510012301790001', 'Gema Pesona Estate Blok Z/4 Kel. Sukmajaya Kec. Sukmajaya'),
-(37, 'Dewi Ratna, A.P', 'Sukmajaya', '32760510052509770001', 'Jl. Mahakam Raya No. 36 Rt. 002 Rw. 012 Kel. Baktijaya Kec. Sukmajaya'),
-(38, 'Drs. H. TUTUN SUFIYAN SULAEMAN', 'Sukmajaya', '32760510010603610001', 'GEMA PESONA BLOK R NO. 1 RT. 006 RW. 011 Kel. Sukmajaya Kec. Sukmajaya'),
-(39, 'Indah Widiastuti, S.E., M.M', 'Sukmajaya', '31740110051801880001', 'JL. KP MELAYU KECIL I, GG MASJID AL-IKHSAN NO. 2 Kel. Bukit Duri Kec. Tebet');
+(31, 'Raka Nugraha', 'Sukmajaya', '32761010060107190001', 'Perum Pesona Laguna Blok F2/30 Rt. 006 Rw. 020 Kel. Cilangkap Kec. Tapos'),
+(32, 'Dimas Hadiansyah', 'Sukmajaya', '32760510030607820001', 'Link. Cipayung Jl. Mandai IV No. 73 Rt. 007 Rw. 002 Kel. Abadi Jaya Kec. Sukmajaya'),
+(33, 'Mario Simanjuntak', 'Sukmajaya', '3276051004140580001', 'Perum Pesona Khayangan Blok DP/10 Kel. Mekarjaya Kec. Sukmajaya'),
+(34, 'Tiara Amalia', 'Sukmajaya', '32732010042005860001', 'Jl. Antapani Lama No. 12 Rt. 003 Rw. 009 Kel. Antapani Tengah Kec. Antapani, Bandung'),
+(35, 'Grace Manalu', 'Sukmajaya', '32.76.05.005.241271.2916', 'Jl. Jasawarga No. 103 Kp. Sugutamu Kel. Baktijaya Kec. Sukmajaya'),
+(36, 'Bima Ardiansyah', 'Sukmajaya', '32760510012301790001', 'Gema Pesona Estate Blok Z/4 Kel. Sukmajaya Kec. Sukmajaya'),
+(37, 'Sari Wulandari', 'Sukmajaya', '32760510052509770001', 'Jl. Mahakam Raya No. 36 Rt. 002 Rw. 012 Kel. Baktijaya Kec. Sukmajaya'),
+(38, 'Hendra Sulaiman', 'Sukmajaya', '32760510010603610001', 'GEMA PESONA BLOK R NO. 1 RT. 006 RW. 011 Kel. Sukmajaya Kec. Sukmajaya'),
+(39, 'Ayu Lestari', 'Sukmajaya', '31740110051801880001', 'JL. KP MELAYU KECIL I, GG MASJID AL-IKHSAN NO. 2 Kel. Bukit Duri Kec. Tebet'),
+(41, 'BUDI', 'Sukmajaya', '32761010060107190011', 'DEPOK');
 
 -- --------------------------------------------------------
 
@@ -76,7 +77,8 @@ INSERT INTO `hasil` (`id_hasil`, `kode_hasil`, `id_alternatif`, `nilai`) VALUES
 (6, NULL, 36, 0.508333),
 (7, NULL, 37, 0.633333),
 (8, NULL, 38, 0.671667),
-(9, NULL, 39, 0.466667);
+(9, NULL, 39, 0.466667),
+(10, NULL, 41, 0);
 
 -- --------------------------------------------------------
 
@@ -297,7 +299,6 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `email`, `role`) VALUES
-(15, 'andinoya', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Andi Santoso', 'asdas@asd', '1'),
 (16, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin', 'dpcpdiperjuangankotadepok@gmail.com', '1'),
 (18, 'Pimpinan Partai', '9f2faf1c60a9d1cd4a33a14dc3173d4e14f4f745', 'Pimpinan Partai', 'dpcpdiperjuangankotadepok@gmail.com', '2');
 
@@ -353,19 +354,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `alternatif`
 --
 ALTER TABLE `alternatif`
-  MODIFY `id_alternatif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id_alternatif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `hasil`
 --
 ALTER TABLE `hasil`
-  MODIFY `id_hasil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_hasil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `kriteria`
 --
 ALTER TABLE `kriteria`
-  MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `penilaian`
@@ -377,7 +378,7 @@ ALTER TABLE `penilaian`
 -- AUTO_INCREMENT for table `sub_kriteria`
 --
 ALTER TABLE `sub_kriteria`
-  MODIFY `id_sub_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id_sub_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
 
 --
 -- AUTO_INCREMENT for table `user`
