@@ -150,7 +150,10 @@ endif;
 									<form action="" method="post">
 										<div class="modal-body">
 											<?php
-											$q2 = mysqli_query($koneksi, "SELECT * FROM kriteria ORDER BY kode_kriteria ASC");
+											$q2 = mysqli_query($koneksi, 
+   											 "SELECT * 
+     										FROM kriteria 
+     										ORDER BY CAST(SUBSTRING(kode_kriteria, 2) AS UNSIGNED) ASC");
 											while ($d = mysqli_fetch_array($q2)) : ?>
 												<input type="text" name="id_alternatif" value="<?= $data['id_alternatif'] ?>" hidden>
 												<input type="text" name="id_kriteria[]" value="<?= $d['id_kriteria'] ?>" hidden>
@@ -195,7 +198,12 @@ endif;
 									<form action="" method="post">
 										<div class="modal-body">
 											<?php
-											$q2 = mysqli_query($koneksi, "SELECT * FROM kriteria ORDER BY kode_kriteria ASC");
+											$q2 = mysqli_query($koneksi, "
+    SELECT * 
+    FROM kriteria 
+    ORDER BY CAST(SUBSTRING(kode_kriteria, 2) AS UNSIGNED) ASC
+");
+
 											while ($d = mysqli_fetch_array($q2)) {
 												$id_kriteria = $d['id_kriteria'];
 												$id_alternatif = $data['id_alternatif'];

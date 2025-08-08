@@ -98,6 +98,9 @@ if (isset($_POST['submit_sub'])) {
                         Kode Kriteria sudah terdaftar di database.
                     </div>
                 <?php endif; ?>
+                <small class="form-text text-muted">
+                *Jika Kriteria Sudah Lebih dari 9, maka gunakan Underscore (_), contoh: C_10.
+            </small>
             </div>
 
             <div class="form-group">

@@ -83,7 +83,11 @@ endswitch;
 					$data = mysqli_fetch_assoc($query);
 					return max(1, $data['jumlah']);
 				}
-				$query = mysqli_query($koneksi, "SELECT k.*, s.sub_kriteria, s.nilai FROM kriteria k LEFT JOIN sub_kriteria s ON k.id_kriteria = s.id_kriteria ORDER BY k.kode_kriteria ASC, s.nilai DESC");
+				$query = mysqli_query($koneksi, "SELECT k.*, s.sub_kriteria, s.nilai 
+    FROM kriteria k 
+    LEFT JOIN sub_kriteria s ON k.id_kriteria = s.id_kriteria 
+    ORDER BY CAST(SUBSTRING(k.kode_kriteria, 2) AS UNSIGNED) ASC, s.nilai DESC");
+
 				while ($data = mysqli_fetch_array($query)) :
 					$is_new_kriteria = $last_id !== $data['id_kriteria'];
 					if ($is_new_kriteria) {
