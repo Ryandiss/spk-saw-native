@@ -57,14 +57,6 @@ if (isset($_POST['submit_sub'])) {
 }
 ?>
 
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800"><i class="fas fa-fw fa-cube"></i> Data Kriteria</h1>
-    <a href="list-kriteria.php" class="btn btn-secondary btn-icon-split">
-                <span class="icon text-white-100"><i class="fas fa-arrow-left"></i></span>
-                <span class="text">Kembali</span>
-            </a>
-</div>
-
 <?php if (!empty($errors)): ?>
     <div class="alert alert-danger">
         <?php foreach ($errors as $e): ?>
@@ -83,6 +75,13 @@ if (isset($_POST['submit_sub'])) {
 
 <?php if (!$id_kriteria_baru): ?>
 <!-- FORM TAMBAH KRITERIA -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800"><i class="fas fa-fw fa-cube"></i> Data Kriteria</h1>
+    <a href="list-kriteria.php" class="btn btn-secondary btn-icon-split">
+                <span class="icon text-white-100"><i class="fas fa-arrow-left"></i></span>
+                <span class="text">Kembali</span>
+            </a>
+</div>
 <form method="post" action="">
     <div class="card mb-4">
         <div class="card-header text-danger"><i class="fas fa-fw fa-plus"></i><strong>Tambah Data Kriteria</strong></div>
@@ -126,13 +125,20 @@ if (isset($_POST['submit_sub'])) {
 
         <div class="card-footer text-right">
             <button name="submit_kriteria" class="btn btn-success"><i class="fa fa-save"></i> Simpan dan Lanjut</button>
-            
+            <button type="reset" class="btn btn-info"><i class="fa fa-sync-alt"></i> Reset</button>
         </div>
     </div>
 </form>
 
 <?php else: ?>
 <!-- FORM TAMBAH SUBKRITERIA -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800"><i class="fas fa-fw fa-cube"></i> Data Kriteria</h1>
+<a href="javascript:history.back()" class="btn btn-secondary btn-icon-split">
+    <span class="icon text-white-100"><i class="fas fa-arrow-left"></i></span>
+    <span class="text">Kembali</span>
+</a>
+</div>
 <form method="post" action="">
     <input type="hidden" name="id_kriteria" value="<?= $id_kriteria_baru; ?>">
     <div class="card mb-4">
@@ -149,10 +155,12 @@ if (isset($_POST['submit_sub'])) {
         </div>
         <div class="card-footer text-right">
             <button name="submit_sub" class="btn btn-success"><i class="fa fa-save"></i> Simpan </button>
+            <button type="reset" class="btn btn-info"><i class="fa fa-sync-alt"></i> Reset</button>
             <a href="list-kriteria.php?status=sukses-tambah" class="btn btn-secondary">
                 <span class="icon text-white-100"><i class="fas fa-fw fa-check mr-1"></i></span>
-                <span class="text">Selesai</span>
+                <span class="text">Selesai</span> 
             </a>
+            
         </div>
     </div>
 </form>

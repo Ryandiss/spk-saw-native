@@ -184,8 +184,8 @@
         ) ? "show" : "" ?>" aria-labelledby="headingLaporan" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <a class="collapse-item <?= ($page == 'Laporan Bacaleg') ? 'active' : '' ?>" href="laporan-bacaleg.php">Laporan Bacaleg</a>
-         <a class="collapse-item <?= ($page == 'Laporan Kriteria') ? 'active' : '' ?>" href="laporan-kriteria.php">Laporan Kriteria</a>
-          <a class="collapse-item <?= ($page == 'Laporan Sub Kriteria') ? 'active' : '' ?>" href="laporan-sub-kriteria.php">Laporan Sub Kriteria</a>
+         <a class="collapse-item <?= ($page == 'Laporan Kriteria') ? 'active' : '' ?>" href="laporan-kriteria.php">Laporan Kriteria & Sub</a>
+          <!--<a class="collapse-item <?= ($page == 'Laporan Sub Kriteria') ? 'active' : '' ?>" href="laporan-sub-kriteria.php">Laporan Sub Kriteria</a>-->
           <a class="collapse-item <?= ($page == 'Laporan Penilaian') ? 'active' : '' ?>" href="laporan-penilaian.php">Laporan Penilaian</a>
           <a class="collapse-item <?= ($page == 'Hasil Akhir') ? 'active' : '' ?>" href="laporan-hasil-akhir.php">Hasil Akhir</a>
         </div>
@@ -225,44 +225,72 @@
       <!-- Main Content -->
       <div id="content">
 
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+    <!-- Topbar -->
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn text-primary d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+    <!-- Sidebar Toggle (Topbar) -->
+    <button id="sidebarToggleTop" class="btn text-primary d-md-none rounded-circle mr-3">
+    <i class="fa fa-bars"></i>
+    </button>
 
-          <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
+    <!-- Tempat waktu di kiri -->
+    <div id="clock" class="font-weight-bold text-danger"></div>
 
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="text-uppercase mr-2 d-none d-lg-inline text-gray-600 small">
-                  <?php
-                  echo $_SESSION['username'];
-                  ?>
-                </span>
-                <img class="img-profile rounded-circle" src="assets/img/user.png">
-              </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="list-profile.php">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
-            </li>
+    <!-- Topbar Navbar -->
+    <ul class="navbar-nav ml-auto">
 
-          </ul>
+    <!-- Nav Item - User Information -->
+    <li class="nav-item dropdown no-arrow">
+      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="text-uppercase mr-2 d-none d-lg-inline text-gray-600 small">
+          <?php echo $_SESSION['username']; ?>
+        </span>
+        <img class="img-profile rounded-circle" src="assets/img/user.png">
+      </a>
+      <!-- Dropdown - User Information -->
+      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+        <a class="dropdown-item" href="list-profile.php">
+          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+          Profile
+        </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+          <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+          Logout
+        </a>
+      </div>
+    </li>
 
-        </nav>
-        <!-- End of Topbar -->
+  </ul>
 
+</nav>
+<!-- End of Topbar -->
+<script>
+function updateClock() {
+    const now = new Date();
+
+    const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+    const months = [
+        'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+        'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+    ];
+
+    const dayName = days[now.getDay()];
+    const day = String(now.getDate()).padStart(2, '0');
+    const monthName = months[now.getMonth()];
+    const year = now.getFullYear();
+
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+
+    const formatted = `${dayName}, ${day} ${monthName} ${year} - ${hours}:${minutes}:${seconds}`;
+
+    document.getElementById('clock').textContent = formatted;
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+</script>
         <div class="container-fluid">
